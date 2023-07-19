@@ -1,17 +1,31 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-public class Main {
+ublic class arrayrot {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int array[] = new int[size];
+        for (int i = 0; i < size; i++) {
+            array[i] = sc.nextInt();
+        }
+        int k = sc.nextInt();
+        rotateArray(array, 0, array.length - 1);
+        rotateArray(array, 0, k - 1);
+        rotateArray(array, k, array.length - 1);
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        for (int result : array) {
+            System.out.print(result + " ");
+        }
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+    }
+
+    public static void rotateArray(int[] array, int start, int end) {
+        int i = start;
+        int j = end;
+        while (i < j) {
+            int temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+            i++;
+            j--;
         }
     }
 }
